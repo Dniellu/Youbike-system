@@ -387,7 +387,7 @@
                 staticClass: "d-flex align-items-center"
             }, [s("img", {
                 attrs: {
-                    src: "Youbike-system\src\assets\images\地標_綠.png"
+                    href: "Youbike-system\src\assets\images\地標_綠.png"
                 }
             }), s("span", [t._v("正常營運")])])
         }
