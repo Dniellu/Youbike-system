@@ -32,7 +32,7 @@
         <div :class="{ 'd-block': legendActive,
           'd-none': !legendActive }">
           <div class="d-flex align-items-center">
-            <img src="Youbike-system\src\assets\images\地標_綠.png">
+            <img src="https://raw.githubusercontent.com/zou0u06/YouBike-map/31559bd4812015166487699283aed8fab27d6fe0/src/assets/images/marker.svg">
             <span>正常營運</span>
           </div>
           <div class="d-flex align-items-center">
@@ -341,7 +341,7 @@ export default {
       ) {
         return 'https://raw.githubusercontent.com/zou0u06/YouBike-map/4e8cce62ed489ff8f54f8cfadfa06f0cc53c3bbb/src/assets/images/marker-noparking.svg';
       }
-      return 'Youbike-system\src\assets\images\地標_綠.png';
+      return 'https://raw.githubusercontent.com/zou0u06/YouBike-map/31559bd4812015166487699283aed8fab27d6fe0/src/assets/images/marker.svg';
     },
     addToFavYoubikes(addedId) {
       const tempId = JSON.parse(localStorage.getItem('favYoubikesId')) || [];
