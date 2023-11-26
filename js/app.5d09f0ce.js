@@ -429,26 +429,8 @@
                 }
             }), s("span", [t._v("暫停營運")])])
         }
-        ,function showPosition(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-        
-            // 創建地圖
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: latitude, lng: longitude},
-                zoom: 15  // 調整地圖縮放級別
-            });
-        
-            // 在地圖上加上標記或其他元素，以顯示使用者位置
-            var marker = new google.maps.Marker({
-                position: {lat: latitude, lng: longitude},
-                map: map,
-                title: '您的位置'
-            });
-        }
         
         ]
-        
           , y = s("5530")
           , w = (s("07ac"),
         
