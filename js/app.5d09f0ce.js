@@ -12,27 +12,7 @@
         return r.push.apply(r, l || []),
         s()
     }
-    /*定位系統*/
-    var map = L.map('map').setView([25.033, 121.565], 13); // 初始化 Leaflet 地圖，預設位置台北市中心
-
-function onLocationFound(e) {
-    var radius = e.accuracy / 2;
-
-    L.marker(e.latlng).addTo(map)
-        .bindPopup("您的位置在這裡").openPopup();
-
-    L.circle(e.latlng, radius).addTo(map);
-}
-
-function onLocationError(e) {
-    alert(e.message);
-}
-
-map.on('locationfound', onLocationFound);
-map.on('locationerror', onLocationError);
-
-map.locate({ setView: true, maxZoom: 16 }); // 啟動地理定位功能，setView: true 會將地圖移動到位置
-
+   
 
     function s() {
         for (var t, e = 0; e < r.length; e++) {
@@ -449,9 +429,29 @@ map.locate({ setView: true, maxZoom: 16 }); // 啟動地理定位功能，setVie
                 }
             }), s("span", [t._v("暫停營運")])])
         }
+        ,function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+        
+            // 創建地圖
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: latitude, lng: longitude},
+                zoom: 15  // 調整地圖縮放級別
+            });
+        
+            // 在地圖上加上標記或其他元素，以顯示使用者位置
+            var marker = new google.maps.Marker({
+                position: {lat: latitude, lng: longitude},
+                map: map,
+                title: '您的位置'
+            });
+        }
+        
         ]
+        
           , y = s("5530")
           , w = (s("07ac"),
+        
         function() {
             var t = this
               , e = t.$createElement
