@@ -12,6 +12,22 @@
         return r.push.apply(r, l || []),
         s()
     }
+    function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          alert("您的瀏覽器不支援地理位置功能。");
+        }
+      }
+      
+      function showPosition(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        document.getElementById("demo").innerHTML = "緯度: " + latitude + "<br>經度: " + longitude;
+        // 在這裡你可以把緯度和經度傳給地圖系統進行定位
+        // 例如：map.setCenter({lat: latitude, lng: longitude});
+      }
+      
     function s() {
         for (var t, e = 0; e < r.length; e++) {
             for (var s = r[e], a = !0, n = 1; n < s.length; n++) {
