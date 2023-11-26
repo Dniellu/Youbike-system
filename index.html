@@ -42,6 +42,8 @@
                 // map.setCenter({ lat: latitude, lng: longitude });
             }
         </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
     </head>
     <body>
         <noscript>
@@ -51,5 +53,6 @@
         <script src="js/chunk-vendors.b2adad64.js"></script>
         <script src="js/app.5d09f0ce.js"></script>
         <button onclick="getLocation()">取得目前位置</button>
+        <div id="map" style="height: 400px;"></div>
     </body>
 </html>

@@ -12,6 +12,28 @@
         return r.push.apply(r, l || []),
         s()
     }
+    /*定位系統*/
+    var map = L.map('map').setView([25.033, 121.565], 13); // 初始化 Leaflet 地圖，預設位置台北市中心
+
+function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+
+    L.marker(e.latlng).addTo(map)
+        .bindPopup("您的位置在這裡").openPopup();
+
+    L.circle(e.latlng, radius).addTo(map);
+}
+
+function onLocationError(e) {
+    alert(e.message);
+}
+
+map.on('locationfound', onLocationFound);
+map.on('locationerror', onLocationError);
+
+map.locate({ setView: true, maxZoom: 16 }); // 啟動地理定位功能，setView: true 會將地圖移動到位置
+
+
     function s() {
         for (var t, e = 0; e < r.length; e++) {
             for (var s = r[e], a = !0, n = 1; n < s.length; n++) {
