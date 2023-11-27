@@ -41,7 +41,15 @@
                 // 例如，如果使用 Google Maps API：
                 // map.setCenter({ lat: latitude, lng: longitude });
             }
+            // 假設你的地圖變數為 map
+var map = L.map('mapid');
+
+// 在按鈕觸發後，設定地圖的中心點到指定的經緯度位置
+function moveToCoordinates() {
+    map.setView([latitude, longitude], 13); // 13 是地圖縮放級別，你可以調整成適合的數值
+}
         </script>
+        
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
     </head>
