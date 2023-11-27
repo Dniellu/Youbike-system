@@ -41,7 +41,7 @@ function showPosition(position) {
 
     // 如果 map 尚未初始化，這邊進行初始化
     if (!map) {
-        map = L.map('map').setView([latitude, longitude], 13);
+        map = L.map('map').setView([latitude, longitude], 25);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     } else {
         map.setView([latitude, longitude], 13); // 更新地圖位置
