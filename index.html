@@ -40,10 +40,10 @@
     
                 // 檢查地圖是否已存在
                 if (!map) {
-                    map = L.map('map').setView([latitude, longitude], 13);
+                    map = L.map('map').setView([latitude, longitude], 25);
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
                 } else {
-                    map.setView([latitude, longitude], 13); // 更新地圖位置
+                    map.setView([latitude, longitude], 25); // 更新地圖位置
                 }
             }
         </script>
@@ -63,6 +63,7 @@
             <strong>We're sorry but youbikemap doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
         </noscript>
         <div id="app"></div>
+        <!-- 確保你的地圖容器 ID 是唯一的 -->
         <button onclick="getLocation()">取得目前位置</button>
         <div id="map" style="height: 400px;"></div>
         <script src="js/chunk-vendors.b2adad64.js"></script>
