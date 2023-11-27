@@ -46,21 +46,6 @@
                     map.setView([latitude, longitude], 25); // 更新地圖位置
                 }
             }
-            // 建立 marker
-const customIcon = L.icon({
-  iconUrl: 'https://letswritetw.github.io/letswrite-leaflet-osm-locate/dist/dot.svg',
-  iconSize: [16, 16],
-});
-const marker = L.marker(zoo, {
-  icon: customIcon,
-  opacity: 1.0
-}).addTo(map);
-
-// 使用者提供位置
-function foundHandler(e) {
-  marker.setLatLng(e.latlng); // 移動 marker
-}
-map.on('locationfound', foundHandler);
         </script>
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
