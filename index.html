@@ -38,7 +38,7 @@
     
                 alert("緯度：" + latitude + "\n經度：" + longitude);
     
-                // 檢查地圖是否已存在
+                // 如果 map 尚未初始化，這邊進行初始化
                 if (!map) {
                     map = L.map('map').setView([latitude, longitude], 25);
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
@@ -47,6 +47,9 @@
                 }
             }
         </script>
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
         <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -63,7 +66,6 @@
             <strong>We're sorry but youbikemap doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
         </noscript>
         <div id="app"></div>
-        <!-- 確保你的地圖容器 ID 是唯一的 -->
         <button onclick="getLocation()">取得目前位置</button>
         <div id="map" style="height: 400px;"></div>
         <script src="js/chunk-vendors.b2adad64.js"></script>
