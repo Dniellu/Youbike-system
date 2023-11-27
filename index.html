@@ -41,14 +41,6 @@
                 // 例如，如果使用 Google Maps API：
                 // map.setCenter({ lat: latitude, lng: longitude });
             }
-            function showPosition(position) {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-
-                // 移動地圖到新的經緯度位置
-                mymap.setView([latitude, longitude], 13); // 使用獲取的經緯度更新地圖位置
-            }
-
         </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
