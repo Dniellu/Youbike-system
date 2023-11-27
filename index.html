@@ -39,11 +39,28 @@
                 alert("緯度：" + latitude + "\n經度：" + longitude);
     
                 // 如果 map 尚未初始化，這邊進行初始化
-
+                if (!map) {
                     map = L.map('map').setView([latitude, longitude], 25);
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-                
+                } else {
+                    map.setView([latitude, longitude], 25); // 更新地圖位置
+                }
             }
+            // 建立 marker
+const customIcon = L.icon({
+  iconUrl: 'https://letswritetw.github.io/letswrite-leaflet-osm-locate/dist/dot.svg',
+  iconSize: [16, 16],
+});
+const marker = L.marker(zoo, {
+  icon: customIcon,
+  opacity: 1.0
+}).addTo(map);
+
+// 使用者提供位置
+function foundHandler(e) {
+  marker.setLatLng(e.latlng); // 移動 marker
+}
+map.on('locationfound', foundHandler);
         </script>
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
