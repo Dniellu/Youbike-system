@@ -20,34 +20,7 @@
         <link href="js/app.5d09f0ce.js" rel="preload" as="script">
         <link href="js/chunk-vendors.b2adad64.js" rel="preload" as="script">
         <link href="css/chunk-vendors.b27e38af.css" rel="stylesheet">
-        <link href="css/app.8852b1b7.css" rel="stylesheet">
-        <script>
-            var map; // 宣告地圖變數
-    
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } else {
-                    alert("抱歉，您的瀏覽器不支援地理定位。");
-                }
-            }
-    
-            function showPosition(position) {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-    
-                alert("緯度：" + latitude + "\n經度：" + longitude);
-    
-                // 如果 map 尚未初始化，這邊進行初始化
-                if (!map) {
-                    map = L.map('map').setView([latitude, longitude], 25);
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-                } else {
-                    map.setView([latitude, longitude], 25); // 更新地圖位置
-                }
-            }
-        </script>
-    
+        <link href="css/app.8852b1b7.css" rel="stylesheet">    
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
         <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
     
@@ -70,5 +43,24 @@
         <div id="map" style="height: 400px;"></div>
         <script src="js/chunk-vendors.b2adad64.js"></script>
         <script src="js/app.5d09f0ce.js"></script>
+        <div id="map" style="height: 400px;"></div>
+
+<script>
+// 在這裡放置你的地圖初始化程式碼及定位程式碼
+// 例如：
+var map = L.map('map').setView([51.505, -0.09], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+}).addTo(map);
+
+map.locate({
+  setView: false,
+  watch: true,
+  maxZoom: 18,
+  enableHighAccuracy: true,
+  timeout: 10000
+});
+</script>
     </body>
 </html>
