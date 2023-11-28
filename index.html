@@ -70,24 +70,5 @@
         <div id="map" style="height: 400px;"></div>
         <script src="js/chunk-vendors.b2adad64.js"></script>
         <script src="js/app.5d09f0ce.js"></script>
-        <div id="map" style="height: 400px;"></div>
-
-<script>
-// 在這裡放置你的地圖初始化程式碼及定位程式碼
-// 例如：
-var map = L.map('map').setView([51.505, -0.09], 13);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 18,
-}).addTo(map);
-
-map.locate({
-  setView: false,
-  watch: true,
-  maxZoom: 18,
-  enableHighAccuracy: true,
-  timeout: 10000
-});
-</script>
     </body>
 </html>
