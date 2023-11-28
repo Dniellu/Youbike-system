@@ -60,6 +60,10 @@
         
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+     <!-- 加載 Leaflet 的 CSS 與 JavaScript -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
     </head>
     <body>
         <noscript>
@@ -70,5 +74,38 @@
         <div id="map" style="height: 400px;"></div>
         <script src="js/chunk-vendors.b2adad64.js"></script>
         <script src="js/app.5d09f0ce.js"></script>
+
+        <div id="map" style="height: 400px;"></div>
+
+    <script>
+        var map; // 宣告地圖變數
+        var userMarker; // 宣告使用者位置的標記變數
+
+        function getLocation() {
+            // 省略原來的位置取得程式碼...
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // 省略原來的提示訊息...
+
+            if (!map) {
+                map = L.map('map').setView([latitude, longitude], 25);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            } else {
+                map.setView([latitude, longitude], 25);
+            }
+
+            // 檢查並移除之前的標記
+            if (userMarker) {
+                map.removeLayer(userMarker);
+            }
+
+            // 在地圖上新增藍點標記
+            userMarker = L.marker([latitude, longitude]).addTo(map);
+        }
+    </script>
     </body>
 </html>
