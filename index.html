@@ -1,58 +1,137 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>臺北市 YouBike 即時資訊地圖</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/zou0u06/YouBike-map/e53ee4ce9b2a4ad2b19bd450cffda40e81a3be08/src/assets/images/favicon.svg">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/zou0u06/YouBike-map/e53ee4ce9b2a4ad2b19bd450cffda40e81a3be08/src/assets/images/favicon.svg">
-    <meta name="description" content="臺北市 YouBike 即時資訊地圖，方便你隨時查詢的小幫手">
-    <meta name="keyword" content="即時, 資訊, 地圖, 臺北市, 臺北, youbike, YouBike, 台北市, 台北">
-    <meta property="og:title" content="臺北 YouBike 即時資訊地圖">
-    <meta property="og:image" content="">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="#">
-    <meta property="og:description" content="臺北 YouBike 即時資訊地圖，方便你隨時查詢的小幫手">
-    <script src="https://kit.fontawesome.com/a9468d723f.js" crossorigin="anonymous"></script>
-    <link href="css/app.8852b1b7.css" rel="preload" as="style">
-    <link href="css/chunk-vendors.b27e38af.css" rel="preload" as="style">
-    <link href="js/app.5d09f0ce.js" rel="preload" as="script">
-    <link href="js/chunk-vendors.b2adad64.js" rel="preload" as="script">
-    <link href="css/chunk-vendors.b27e38af.css" rel="stylesheet">
-    <link href="css/app.8852b1b7.css" rel="stylesheet">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>臺北市 YouBike 即時資訊地圖</title>
+        <link rel="icon" href="https://raw.githubusercontent.com/zou0u06/YouBike-map/e53ee4ce9b2a4ad2b19bd450cffda40e81a3be08/src/assets/images/favicon.svg">
+        <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/zou0u06/YouBike-map/e53ee4ce9b2a4ad2b19bd450cffda40e81a3be08/src/assets/images/favicon.svg">
+        <meta name="description" content="臺北市 YouBike 即時資訊地圖，方便你隨時查詢的小幫手">
+        <meta name="keyword" content="即時, 資訊, 地圖, 臺北市, 臺北, youbike, YouBike, 台北市, 台北">
+        <meta property="og:title" content="臺北 YouBike 即時資訊地圖">
+        <meta property="og:image" content="">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="#">
+        <meta property="og:description" content="臺北 YouBike 即時資訊地圖，方便你隨時查詢的小幫手">
+        <script src="https://kit.fontawesome.com/a9468d723f.js" crossorigin="anonymous"></script>
+        <link href="css/app.8852b1b7.css" rel="preload" as="style">
+        <link href="css/chunk-vendors.b27e38af.css" rel="preload" as="style">
+        <link href="js/app.5d09f0ce.js" rel="preload" as="script">
+        <link href="js/chunk-vendors.b2adad64.js" rel="preload" as="script">
+        <link href="css/chunk-vendors.b27e38af.css" rel="stylesheet">
+        <link href="css/app.8852b1b7.css" rel="stylesheet">
+        
+        <script>
+            var map; // 宣告地圖變數
+    
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    alert("抱歉，您的瀏覽器不支援地理定位。");
+                }
+            }
+    
+            function showPosition(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+    
+                alert("緯度：" + latitude + "\n經度：" + longitude);
+    
+                // 如果 map 尚未初始化，這邊進行初始化
+                if (!map) {
+                    map = L.map('map').setView([latitude, longitude], 25);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+                } else {
+                    map.setView([latitude, longitude], 25); // 更新地圖位置
+                }
+            }
+        </script>
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
-    <!-- 加入您提供的按鈕和相關模組 -->
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-
-    <!-- Leaflet 相關資源 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+        </script>
+        
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-</head>
-<body>
-    <noscript>
-        <strong>We're sorry but youbikemap doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <button onclick="getLocation()">取得目前位置</button>
-    <div id="map" style="height: 400px;"></div>
-    <script src="js/chunk-vendors.b2adad64.js"></script>
-    <script src="js/app.5d09f0ce.js"></script>
 
-    <!-- 設備介紹按鈕及相關內容 -->
-    <button id="openModal">設備介紹</button>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <!-- 在這裡放置你的14張圖片 -->
-            <div class="slideshow-container">
-                <div class="mySlides">
-                    <img src="image1.jpg" alt="Image 1">
-                </div>
-                <!-- 依此類推，插入其他圖片 -->
-            </div>
+        <!-- 省略其他部分 -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+        <!-- 其他链接和元数据 -->
+    
+        <style>
+            /* 样式可以根据需要进行调整 */
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+            }
+    
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <strong>We're sorry but youbikemap doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        </noscript>
+        <div id="app"></div>
+        <button onclick="getLocation()">取得目前位置</button>
+        <div id="map" style="height: 400px;"></div>
+        <script src="js/chunk-vendors.b2adad64.js"></script>
+        <script src="js/app.5d09f0ce.js"></script>
+
+
+            <!-- 省略其他部分 -->
+    <button onclick="showSlides()">設備介紹</button>
+    <!-- 省略其他部分 -->
+
+    <div id="equipmentSlides" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="image1.jpg" alt="Image 1"></div>
+            <!-- 添加其他图片的 div，每个 div 作为一个幻灯片 -->
+            <div class="swiper-slide"><img src="image2.jpg" alt="Image 2"></div>
+            <!-- 更多图片 -->
         </div>
+        <!-- 如果需要添加分页器或者导航按钮可以在这里添加 -->
     </div>
-</body>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        function showSlides() {
+            var swiper = new Swiper('#equipmentSlides', {
+                // 设置幻灯片的参数，根据需要进行调整
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                // 如果需要前进后退按钮
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        }
+    </script>
+    </body>
 </html>
