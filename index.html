@@ -1,94 +1,58 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>臺北市 YouBike 即時資訊地圖</title>
-        <link rel="icon" href="https://raw.githubusercontent.com/zou0u06/YouBike-map/e53ee4ce9b2a4ad2b19bd450cffda40e81a3be08/src/assets/images/favicon.svg">
-        <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/zou0u06/YouBike-map/e53ee4ce9b2a4ad2b19bd450cffda40e81a3be08/src/assets/images/favicon.svg">
-        <meta name="description" content="臺北市 YouBike 即時資訊地圖，方便你隨時查詢的小幫手">
-        <meta name="keyword" content="即時, 資訊, 地圖, 臺北市, 臺北, youbike, YouBike, 台北市, 台北">
-        <meta property="og:title" content="臺北 YouBike 即時資訊地圖">
-        <meta property="og:image" content="">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="#">
-        <meta property="og:description" content="臺北 YouBike 即時資訊地圖，方便你隨時查詢的小幫手">
-        <script src="https://kit.fontawesome.com/a9468d723f.js" crossorigin="anonymous"></script>
-        <link href="css/app.8852b1b7.css" rel="preload" as="style">
-        <link href="css/chunk-vendors.b27e38af.css" rel="preload" as="style">
-        <link href="js/app.5d09f0ce.js" rel="preload" as="script">
-        <link href="js/chunk-vendors.b2adad64.js" rel="preload" as="script">
-        <link href="css/chunk-vendors.b27e38af.css" rel="stylesheet">
-        <link href="css/app.8852b1b7.css" rel="stylesheet">
-        <script>
-            var map; // 宣告地圖變數
-    
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } else {
-                    alert("抱歉，您的瀏覽器不支援地理定位。");
-                }
-            }
-    
-            function showPosition(position) {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-    
-                alert("緯度：" + latitude + "\n經度：" + longitude);
-    
-                // 如果 map 尚未初始化，這邊進行初始化
-                if (!map) {
-                    map = L.map('map').setView([latitude, longitude], 25);
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-                } else {
-                    map.setView([latitude, longitude], 25); // 更新地圖位置
-                }
-            }
-        </script>
-    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
-        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-    
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
-        <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>臺北市 YouBike 即時資訊地圖</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/zou0u06/YouBike-map/e53ee4ce9b2a4ad2b19bd450cffda40e81a3be08/src/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/zou0u06/YouBike-map/e53ee4ce9b2a4ad2b19bd450cffda40e81a3be08/src/assets/images/favicon.svg">
+    <meta name="description" content="臺北市 YouBike 即時資訊地圖，方便你隨時查詢的小幫手">
+    <meta name="keyword" content="即時, 資訊, 地圖, 臺北市, 臺北, youbike, YouBike, 台北市, 台北">
+    <meta property="og:title" content="臺北 YouBike 即時資訊地圖">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="#">
+    <meta property="og:description" content="臺北 YouBike 即時資訊地圖，方便你隨時查詢的小幫手">
+    <script src="https://kit.fontawesome.com/a9468d723f.js" crossorigin="anonymous"></script>
+    <link href="css/app.8852b1b7.css" rel="preload" as="style">
+    <link href="css/chunk-vendors.b27e38af.css" rel="preload" as="style">
+    <link href="js/app.5d09f0ce.js" rel="preload" as="script">
+    <link href="js/chunk-vendors.b2adad64.js" rel="preload" as="script">
+    <link href="css/chunk-vendors.b27e38af.css" rel="stylesheet">
+    <link href="css/app.8852b1b7.css" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
-        </script>
-        
+    <!-- 加入您提供的按鈕和相關模組 -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
+    <!-- Leaflet 相關資源 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <noscript>
+        <strong>We're sorry but youbikemap doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <button onclick="getLocation()">取得目前位置</button>
+    <div id="map" style="height: 400px;"></div>
+    <script src="js/chunk-vendors.b2adad64.js"></script>
+    <script src="js/app.5d09f0ce.js"></script>
 
-    <meta charset="UTF-8">
-  <title>設備介紹</title>
-  <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <noscript>
-            <strong>We're sorry but youbikemap doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-        </noscript>
-        <div id="app"></div>
-        <button onclick="getLocation()">取得目前位置</button>
-        <div id="map" style="height: 400px;"></div>
-        <script src="js/chunk-vendors.b2adad64.js"></script>
-        <script src="js/app.5d09f0ce.js"></script>
-        
-        <button id="openModal">設備介紹</button>
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <!-- 在這裡放置你的14張圖片 -->
-      <div class="slideshow-container">
-        <div class="mySlides">
-          <img src="image1.jpg" alt="Image 1">
+    <!-- 設備介紹按鈕及相關內容 -->
+    <button id="openModal">設備介紹</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- 在這裡放置你的14張圖片 -->
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="image1.jpg" alt="Image 1">
+                </div>
+                <!-- 依此類推，插入其他圖片 -->
+            </div>
         </div>
-        <!-- 依此類推，插入其他圖片 -->
-      </div>
     </div>
-  </div>
-  <script src="script.js"></script>
-
-    </body>
+</body>
 </html>
