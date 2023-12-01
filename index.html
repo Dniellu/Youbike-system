@@ -60,6 +60,10 @@
         
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <meta charset="UTF-8">
+  <title>設備介紹</title>
+  <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <noscript>
@@ -70,8 +74,21 @@
         <div id="map" style="height: 400px;"></div>
         <script src="js/chunk-vendors.b2adad64.js"></script>
         <script src="js/app.5d09f0ce.js"></script>
-        <script>
-            
-        </script>
+        
+        <button id="openModal">設備介紹</button>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <!-- 在這裡放置你的14張圖片 -->
+      <div class="slideshow-container">
+        <div class="mySlides">
+          <img src="image1.jpg" alt="Image 1">
+        </div>
+        <!-- 依此類推，插入其他圖片 -->
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
     </body>
 </html>
