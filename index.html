@@ -73,5 +73,73 @@
         <script>
             
         </script>
+
+<button onclick="openSlideshow()">設備介紹</button>
+
+<div id="slideshowModal" class="modal">
+    <span class="close" onclick="closeSlideshow()">&times;</span>
+    <div class="slideshow-content">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <!-- 加入剩下的圖片，依此類推 -->
+        <!-- 記得替換 image1.jpg, image2.jpg 等等為你實際圖片的 URL -->
+    </div>
+</div>
+
+<style>
+    /* CSS for the slideshow modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    .slideshow-content img {
+        width: 100%;
+        height: auto;
+        display: none;
+    }
+
+    .slideshow-content img:first-child {
+        display: block;
+    }
+
+    /* Close button style */
+    .close {
+        color: #fff;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: #ccc;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    function openSlideshow() {
+        document.getElementById('slideshowModal').style.display = 'block';
+    }
+
+    function closeSlideshow() {
+        document.getElementById('slideshowModal').style.display = 'none';
+    }
+</script>
     </body>
 </html>
