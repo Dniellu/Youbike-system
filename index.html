@@ -88,50 +88,69 @@
             <strong>We're sorry but youbikemap doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
         </noscript>
         <div id="app"></div>
-        <button onclick="getLocation()">取得目前位置</button>
+        <button class="intro-button" onclick="showSlides()">設備介紹</button>
         <div id="map" style="height: 400px;"></div>
+        <!-- 幻灯片容器 -->
+        <div id="equipmentSlides" class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="image1.jpg" alt="Image 1"></div>
+                <!-- 添加其他图片的 div，每个 div 作为一个幻灯片 -->
+                <div class="swiper-slide"><img src="image2.jpg" alt="Image 2"></div>
+                <!-- 更多图片 -->
+            </div>
+            <!-- 如果需要添加分页器或者导航按钮可以在这里添加 -->
+        </div>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            function showSlides() {
+                var swiper = new Swiper('#equipmentSlides', {
+                    // 设置幻灯片的参数，根据需要进行调整
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    },
+                    // 如果需要分页器
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    // 如果需要前进后退按钮
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            }
+        </script>
+        <script>
+            // 这里是你原本的地图相关的 JavaScript 代码，我将其保留在这里
+            var map;
+            function getLocation() {
+                // 省略了获取位置的相关代码
+            }
+            function showPosition(position) {
+                // 省略了显示位置的相关代码
+            }
+        </script>
+        <!-- 原本的其他 JavaScript 文件 -->
         <script src="js/chunk-vendors.b2adad64.js"></script>
         <script src="js/app.5d09f0ce.js"></script>
-
-
-            <!-- 省略其他部分 -->
-    <button onclick="showSlides()">設備介紹</button>
-    <!-- 省略其他部分 -->
-
-    <div id="equipmentSlides" class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="image1.jpg" alt="Image 1"></div>
-            <!-- 添加其他图片的 div，每个 div 作为一个幻灯片 -->
-            <div class="swiper-slide"><img src="image2.jpg" alt="Image 2"></div>
-            <!-- 更多图片 -->
-        </div>
-        <!-- 如果需要添加分页器或者导航按钮可以在这里添加 -->
-    </div>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        function showSlides() {
-            var swiper = new Swiper('#equipmentSlides', {
-                // 设置幻灯片的参数，根据需要进行调整
-                slidesPerView: 1,
-                spaceBetween: 30,
-                loop: true,
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
-                // 如果需要分页器
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                // 如果需要前进后退按钮
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            });
-        }
-    </script>
+        <script>
+            // 这里是你原本的地图相关的 JavaScript 代码，我将其保留在这里
+            var map;
+            function getLocation() {
+                // 省略了获取位置的相关代码
+            }
+            function showPosition(position) {
+                // 省略了显示位置的相关代码
+            }
+        </script>
+        <!-- 原本的其他 JavaScript 文件 -->
+        <script src="js/chunk-vendors.b2adad64.js"></script>
+        <script src="js/app.5d09f0ce.js"></script>
     </body>
 </html>
